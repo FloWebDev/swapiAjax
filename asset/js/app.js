@@ -8,7 +8,7 @@ var app = {
             <img src="asset/media/star-wars.png" alt="swapi ajax" style="width: 300px;">\
             </div>')
 
-        $('.swapiAjax').on('click', app.handleSwapiAjax);
+        $('.swapiAjax').on('mouseover', app.handleSwapiAjax);
 
     },
 
