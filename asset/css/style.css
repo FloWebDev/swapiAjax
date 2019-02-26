@@ -1,0 +1,43 @@
+* {
+    box-sizing: border-box;
+}
+
+@font-face { /* Définition d'une nouvelle police nommée Distant Galaxy */
+    font-family: 'distantGalaxy';
+    src: url('../font/distantGalaxy/DISTGRG_.ttf') format('truetype');
+}
+
+h1 /* Utilisation de la police qu'on vient de définir sur les titres */
+{
+    font-family: 'distantGalaxy', sans-serif;
+    font-size: 4rem;
+}
+
+h1 a,
+h1 a:hover {
+    color: black;
+    /* text-decoration: none;  */
+}
+
+body {
+    background-image: url('../media/stars.jpg');
+    background-position: center;
+    background-size: auto;
+    background-repeat: repeat;
+    color: black
+}
+
+.container {
+    background-color: #D2D5DA;
+    opacity: 0.9;
+    min-height: 100vh;
+    margin: 1rem auto;
+    border-radius: 15px;
+}
+
+.card {
+    background-color: transparent;
+    border: 1px solid black;
+    margin: 1rem auto;
+    padding: 1rem;
+}

@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" href="asset/css/style.css">
+    <link rel="shortcut icon" href="asset/star.ico" type="image/x-icon">
+    <title>Swapi Ajax - Florian Mathevon</title>
+    <meta name="description" content="Florian Mathevon - Ajax sur API Swapi">
+    <meta name="keywords" content="développeur web, développeur back-end, ajax, api, swapi">
+</head>
+<body>
+    <div class="container">
+        <div class="row">
+            <h1 class="col-12 text-center"><a href="./">Swapi Ajax</a></h1>
+            <p class="col-12 text-center">Site utilisant les requêtes Ajax pour interagir avec l'API Swapi (univers Star Wars).</p>
+            <div class="col-12 text-center">
+                    <a class="swapiAjax btn btn-dark" href="#" role="button" data-info="movie">Films</a>
+                    <a class="swapiAjax btn btn-dark" href="#" role="button" data-info="starship">Vaisseaux</a>
+                    <a class="swapiAjax btn btn-dark" href="#" role="button" data-info="character">Personnage (aléatoire)</a>
+                    <a class="swapiAjax btn btn-dark" href="#" role="button" data-info="planet">Planète (aléatoire)</a>
+            </div>
+            <div class="col-12 my-3" id="swapi">
+
+                <!-- Affichage des résultats via Jquery -->
+
+            </div>
+
+        </div>
+    </div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="asset/js/app.js"></script>
+</body>
+</html>
