@@ -150,7 +150,7 @@ var app = {
 
               $('<div>').addClass('col-12 card').appendTo('#swapi');
 
-              $('<p>').html(response.results[randomIndex].name).css('font-weight', 'bold').appendTo('#swapi div');
+              $('<p>').html('Personnage : ' + response.results[randomIndex].name).css('font-weight', 'bold').appendTo('#swapi div');
 
               $('<p>').html('<span style="font-weight: bold;">Genre : </span>' + response.results[randomIndex].gender + ' <span style="font-weight: bold;">- Taille : </span>' + response.results[randomIndex].height + ' <span style="font-weight: bold;">- Poids : </span>' + response.results[randomIndex].mass + ' <span style="font-weight: bold;">- Couleur des yeux : </span>' + response.results[randomIndex].eye_color + ' <span style="font-weight: bold;">- Couleur des cheveux : </span>' + response.results[randomIndex].hair_color).appendTo('#swapi div');
 
