@@ -1,5 +1,9 @@
 var app = {
 
+    nbPage: 1,
+    page: '',
+    starshipArray: [],
+
     init: function() {
 
         console.log('init');
@@ -89,27 +93,49 @@ var app = {
 
         $.ajax(
             {
-              url: 'https://swapi.co/api/starships/', // URL sur laquelle faire l'appel Ajax
+              url: 'https://swapi.co/api/starships/' + app.page, // URL sur laquelle faire l'appel Ajax
               method: 'GET', // La méthode HTTP souhaité pour l'appel Ajax (GET ou POST)
               dataType: 'json', // Le type de données attendu en réponse (text, html, xml, json)
             }
           ).done(function(response) { // J'attache une fonction anonyme à l'évènement "Appel ajax fini avec succès" et je récupère le code de réponse en paramètre
-              console.log(response); // debug
+                console.log(response); // debug
 
-              $('#swapi').empty();
+                // Pour chaque valeur (vaisseau) retourné, j'ajoute celle-ci dans le tableau
+                // La méthode push() ajoute un ou plusieurs éléments à la fin d'un tableau et retourne la nouvelle taille du tableau.
+                // https://developer.mozilla.org/fr/docs/Web/JavaScript/Reference/Objets_globaux/Array/push
+                for(var index in response.results)
+                {
+                    app.starshipArray.push(response.results[index]);
+                }
 
-              $('<h2>').html('Liste des vaisseaux spatiaux :').appendTo('#swapi');
+                // Si présence d'une page suivante,
+                // je relance cette méthode en définissant la page
+                // sur laquelle requêtée
+                if (response.next !== null)
+                {
+                    app.nbPage++;
+                    app.page = '?page=' + app.nbPage;
+                    
+                    console.log(app.page);
+                    
+                    app.starshipAjax();
+                    return;
+                }
 
-              $('<ul>').appendTo('#swapi');
+                // Gestion de l'affichage dans le DOM
+                $('#swapi').empty();
 
-              for (var starshipIndex in response.results) {
+                $('<h2>').html('Liste des vaisseaux spatiaux :').appendTo('#swapi');
 
-                $('<li>').html(response.results[starshipIndex].name).appendTo('#swapi ul');
+                $('<ul>').appendTo('#swapi');
 
-              }
+                for (var starshipIndex in app.starshipArray) {
 
-              
-              
+                $('<li>').html(app.starshipArray[starshipIndex].name).appendTo('#swapi ul');
+
+                }
+
+
           }).fail(function() { // J'attache une fonction anonyme à l'évènement "Appel ajax fini avec erreur"
               alert('Erreur, veuillez réessayer ultérieurement !');
           });
