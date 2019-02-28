@@ -2,13 +2,16 @@
     box-sizing: border-box;
 }
 
-@font-face { /* Définition d'une nouvelle police nommée Distant Galaxy */
+@font-face {
+    /* Définition d'une nouvelle police nommée Distant Galaxy */
     font-family: 'distantGalaxy';
     src: url('../font/distantGalaxy/DISTGRG_.ttf') format('truetype');
 }
 
-h1 /* Utilisation de la police qu'on vient de définir sur les titres */
-{
+h1
+
+/* Utilisation de la police qu'on vient de définir sur les titres */
+    {
     font-family: 'distantGalaxy', sans-serif;
     font-size: 4rem;
 }
@@ -33,6 +36,10 @@ body {
     min-height: 100vh;
     margin: 1rem auto;
     border-radius: 15px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-flow: column nowrap;
 }
 
 .card {
@@ -40,4 +47,10 @@ body {
     border: 1px solid black;
     margin: 1rem auto;
     padding: 1rem;
+}
+
+footer {
+    width: 100%;
+    text-align: center;
+    margin-top: 1rem;
 }
