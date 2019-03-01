@@ -1,7 +1,6 @@
 var app = {
 
-    nbPage: 1,
-    page: '',
+    starshipPage: 'https://swapi.co/api/starships/',
     starshipArray: [],
 
     init: function() {
@@ -90,10 +89,11 @@ var app = {
     starshipAjax: function() {
         
         console.log('starshipAjax');
+        console.log(app.starshipPage);
 
         $.ajax(
             {
-              url: 'https://swapi.co/api/starships/' + app.page, // URL sur laquelle faire l'appel Ajax
+              url: app.starshipPage, // URL sur laquelle faire l'appel Ajax
               method: 'GET', // La méthode HTTP souhaité pour l'appel Ajax (GET ou POST)
               dataType: 'json', // Le type de données attendu en réponse (text, html, xml, json)
             }
@@ -109,18 +109,17 @@ var app = {
                 }
 
                 // Si présence d'une page suivante,
-                // je relance cette méthode en définissant la page
+                // je relance cette méthode en modifiant la page
                 // sur laquelle requêtée
                 if (response.next !== null)
                 {
-                    app.nbPage++;
-                    app.page = '?page=' + app.nbPage;
-                    
-                    console.log(app.page);
+                    app.starshipPage = response.next;
                     
                     app.starshipAjax();
                     return;
                 }
+
+                console.log(app.starshipArray);
 
                 // Gestion de l'affichage dans le DOM
                 $('#swapi').empty();
@@ -134,6 +133,12 @@ var app = {
                 $('<li>').html(app.starshipArray[starshipIndex].name).appendTo('#swapi ul');
 
                 }
+
+                // Une fois l'affichage effectuée,
+                // on réinitialise les propriétés de l'app
+                // avec leurs valeurs par défaut
+                app.starshipPage = 'https://swapi.co/api/starships/';
+                app.starshipArray = [];
 
 
           }).fail(function() { // J'attache une fonction anonyme à l'évènement "Appel ajax fini avec erreur"
