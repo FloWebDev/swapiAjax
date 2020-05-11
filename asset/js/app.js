@@ -1,6 +1,6 @@
 var app = {
 
-    starshipPage: 'https://swapi.co/api/starships/',
+    starshipPage: 'https://swapi.dev/api/starships/',
     starshipArray: [],
 
     init: function() {
@@ -56,7 +56,7 @@ var app = {
 
         $.ajax(
             {
-              url: 'https://swapi.co/api/films/', // URL sur laquelle faire l'appel Ajax
+              url: 'https://swapi.dev/api/films/', // URL sur laquelle faire l'appel Ajax
               method: 'GET', // La méthode HTTP souhaité pour l'appel Ajax (GET ou POST)
               dataType: 'json', // Le type de données attendu en réponse (text, html, xml, json)
             }
@@ -137,7 +137,7 @@ var app = {
                 // Une fois l'affichage effectuée,
                 // on réinitialise les propriétés de l'app
                 // avec leurs valeurs par défaut
-                app.starshipPage = 'https://swapi.co/api/starships/';
+                app.starshipPage = 'https://swapi.dev/api/starships/';
                 app.starshipArray = [];
 
 
@@ -153,7 +153,7 @@ var app = {
 
         $.ajax(
             {
-              url: 'https://swapi.co/api/people/', // URL sur laquelle faire l'appel Ajax
+              url: 'https://swapi.dev/api/people/', // URL sur laquelle faire l'appel Ajax
               method: 'GET', // La méthode HTTP souhaité pour l'appel Ajax (GET ou POST)
               dataType: 'json', // Le type de données attendu en réponse (text, html, xml, json)
             }
@@ -200,7 +200,7 @@ var app = {
 
         $.ajax(
             {
-              url: 'https://swapi.co/api/planets/', // URL sur laquelle faire l'appel Ajax
+              url: 'https://swapi.dev/api/planets/', // URL sur laquelle faire l'appel Ajax
               method: 'GET', // La méthode HTTP souhaité pour l'appel Ajax (GET ou POST)
               dataType: 'json', // Le type de données attendu en réponse (text, html, xml, json)
             }
